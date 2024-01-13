@@ -1,0 +1,2 @@
+Invoking command in '/home/simon/Workspace/odrive_hw_interface/build/odrive_hw_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/simon/Workspace/odrive_hw_interface -DCMAKE_INSTALL_PREFIX=/home/simon/Workspace/odrive_hw_interface/install/odrive_hw_interface
+Invoked command in '/home/simon/Workspace/odrive_hw_interface/build/odrive_hw_interface' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/simon/Workspace/odrive_hw_interface -DCMAKE_INSTALL_PREFIX=/home/simon/Workspace/odrive_hw_interface/install/odrive_hw_interface

@@ -12,8 +12,8 @@ public:
     void motor_off();
     void set_input_torque(float torque);
     void update_motor_state();
-    void get_pos();
-    void get_vel();
+    float get_pos();
+    float get_vel();
 
     int id;
 private:

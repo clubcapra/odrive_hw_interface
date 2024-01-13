@@ -1,0 +1,9 @@
+<library path="odrive_can_hw_interface">
+    <class name="odrive_hw_interface/OdriveCanHwInterface"
+           type="odrive_hw_interface::OdriveCanHwInterface"
+           base_class_type="hardware_interface::ActuatorInterface">
+      <description>
+        ros2_control hardware interface.
+      </description>
+    </class>
+  </library>

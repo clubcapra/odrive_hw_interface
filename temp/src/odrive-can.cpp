@@ -12,6 +12,7 @@
 const uint16_t ODRIVE_ID_MASK = 0x7E0;
 
 const uint16_t ODRIVE_SET_AXIS_STATE = 0x007;
+const uint16_t ODRIVE_GET_ENCODER_ESTIMATES = 0x09;
 const uint16_t ODRIVE_SET_INPUT_TORQUE = 0x00E;
 
 OdriveCAN::OdriveCAN(int drive_id, const char *can_interface) {
@@ -42,11 +43,21 @@ OdriveCAN::OdriveCAN(int drive_id, const char *can_interface) {
         return; 
     }
 
+        // Set the read timeout to 1 second (adjust as needed)
+    struct timeval timeout;
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 10000;
+    if (setsockopt(this->socket_fd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) == -1) {
+        perror("ERROR SETTING TIMEOUT");
+        close(this->socket_fd);
+        return;
+    }
+
     struct can_filter filter[1];
     filter[0].can_id = this->id;  // Set the CAN ID (will be masked)
     filter[0].can_mask = ODRIVE_ID_MASK; 
 
-    if (setsockopt(socket_fd, SOL_CAN_RAW, CAN_RAW_FILTER, &filter, sizeof(filter)) < 0) {
+    if (setsockopt(this->socket_fd, SOL_CAN_RAW, CAN_RAW_FILTER, &filter, sizeof(filter)) < 0) {
         perror("Error setting CAN filter");
         close(this->socket_fd);
         return;
@@ -75,7 +86,7 @@ void OdriveCAN::motor_on() {
         return;//TODO HANDLE ERROR
     }
 
-    //TODO DETECT WHEN MOTOR IS DONE BOOTING UP AND RETURN UPON THAT
+    usleep(10000);//somehow, first write is discarted, this is here to counter that
 }
 
 void OdriveCAN::motor_off() {
@@ -98,8 +109,6 @@ void OdriveCAN::motor_off() {
 
 
 void OdriveCAN::set_input_torque(float torque){
-    std::cout << "ODrive Torque" << std::endl;
-
     struct can_frame request_frame;
     request_frame.can_id = (this->id << 5) | ODRIVE_SET_INPUT_TORQUE;
     request_frame.can_dlc = sizeof(float);
@@ -114,5 +123,48 @@ void OdriveCAN::set_input_torque(float torque){
 }
 
 void OdriveCAN::update_motor_state(){
-    
+    struct can_frame request_frame;
+    request_frame.can_id = (this->id << 5) | ODRIVE_GET_ENCODER_ESTIMATES;
+    request_frame.can_dlc = 0;
+
+    // Send the CAN request frame
+    if (write(socket_fd, &request_frame, sizeof(request_frame)) == -1) {
+        perror("Error sending CAN request frame");
+        close(socket_fd);
+        return;//TODO HANDLE ERROR
+    }
+
+
+    struct can_frame recv_frame;
+    int count = 0;
+    while (true) {
+        ssize_t nbytes = read(socket_fd, &recv_frame, sizeof(struct can_frame));
+        if(nbytes == 0){
+            perror("NO ANSWER");
+            return;
+        }
+        if(recv_frame.can_id != request_frame.can_id){
+            if(count++ > 15){
+                perror("NO ANSWER");
+                return;
+            }
+        }
+        if(recv_frame.can_id == request_frame.can_id){
+            break;
+        }
+    }
+    float loc_pos, loc_vel;
+    memcpy(&loc_pos,&recv_frame.data[0],sizeof(float));
+    memcpy(&loc_vel,&recv_frame.data[4],sizeof(float));
+
+    this->pos = loc_pos;
+    this->vel = loc_vel;
+}
+
+float OdriveCAN::get_pos(){
+    return(this->pos);
+}
+
+float OdriveCAN::get_vel(){
+    return(this->vel);
 }

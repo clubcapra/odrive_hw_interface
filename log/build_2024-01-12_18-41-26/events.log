@@ -1,0 +1,69 @@
+[0.000000] (-) TimerEvent: {}
+[0.000165] (odrive_hw_interface) JobQueued: {'identifier': 'odrive_hw_interface', 'dependencies': OrderedDict()}
+[0.000217] (odrive_hw_interface) JobStarted: {'identifier': 'odrive_hw_interface'}
+[0.066459] (odrive_hw_interface) JobProgress: {'identifier': 'odrive_hw_interface', 'progress': 'cmake'}
+[0.067061] (odrive_hw_interface) Command: {'cmd': ['/usr/bin/cmake', '/home/simon/Workspace/odrive_hw_interface', '-DCMAKE_INSTALL_PREFIX=/home/simon/Workspace/odrive_hw_interface/install/odrive_hw_interface'], 'cwd': '/home/simon/Workspace/odrive_hw_interface/build/odrive_hw_interface', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_CA:en'), ('USER', 'simon'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/simon'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('TERM_PROGRAM_VERSION', '1.85.1'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1652'), ('SYSTEMD_EXEC_PID', '1999'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6912'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'simon'), ('JOURNAL_STREAM', '8:32196'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'simon'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/simon/.local/bin:/home/simon/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/simon-Nitro-AN515-54:@/tmp/.ICE-unix/1976,unix/simon-Nitro-AN515-54:/tmp/.ICE-unix/1976'), ('INVOCATION_ID', '69e10b7536044b26882fad877a8c6215'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_CA.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-fb4c5a802f.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/simon/Workspace/odrive_hw_interface/build/odrive_hw_interface'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099327] (-) TimerEvent: {}
+[0.123195] (odrive_hw_interface) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.180826] (odrive_hw_interface) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.187899] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199447] (-) TimerEvent: {}
+[0.261352] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.269356] (odrive_hw_interface) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.269683] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.270134] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.273289] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299555] (-) TimerEvent: {}
+[0.399906] (-) TimerEvent: {}
+[0.419223] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.441918] (odrive_hw_interface) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.442348] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.443125] (odrive_hw_interface) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.448328] (odrive_hw_interface) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.499995] (-) TimerEvent: {}
+[0.600291] (-) TimerEvent: {}
+[0.633133] (odrive_hw_interface) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter \n'}
+[0.700394] (-) TimerEvent: {}
+[0.734555] (odrive_hw_interface) StdoutLine: {'line': b'-- Found hardware_interface: 2.36.0 (/opt/ros/humble/share/hardware_interface/cmake)\n'}
+[0.768332] (odrive_hw_interface) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.772293] (odrive_hw_interface) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.779584] (odrive_hw_interface) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.791543] (odrive_hw_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.800481] (-) TimerEvent: {}
+[0.809732] (odrive_hw_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.900596] (-) TimerEvent: {}
+[1.000873] (-) TimerEvent: {}
+[1.101120] (-) TimerEvent: {}
+[1.201367] (-) TimerEvent: {}
+[1.301630] (-) TimerEvent: {}
+[1.401861] (-) TimerEvent: {}
+[1.486938] (odrive_hw_interface) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.488999] (odrive_hw_interface) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.501961] (-) TimerEvent: {}
+[1.523858] (odrive_hw_interface) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[1.569241] (odrive_hw_interface) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.572536] (odrive_hw_interface) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[1.584384] (odrive_hw_interface) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[1.593411] (odrive_hw_interface) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[1.601014] (odrive_hw_interface) StdoutLine: {'line': b'-- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND\n'}
+[1.602067] (-) TimerEvent: {}
+[1.609461] (odrive_hw_interface) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.618996] (odrive_hw_interface) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.687819] (odrive_hw_interface) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.688071] (odrive_hw_interface) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.702194] (-) TimerEvent: {}
+[1.766858] (odrive_hw_interface) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[1.768043] (odrive_hw_interface) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.802311] (-) TimerEvent: {}
+[1.902546] (-) TimerEvent: {}
+[1.931118] (odrive_hw_interface) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:42 (message):\n'}
+[1.931336] (odrive_hw_interface) StderrLine: {'line': b'  ament_target_dependencies() the first argument must be a valid target name\n'}
+[1.931403] (odrive_hw_interface) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.931458] (odrive_hw_interface) StderrLine: {'line': b'  CMakeLists.txt:25 (ament_target_dependencies)\n'}
+[1.931510] (odrive_hw_interface) StderrLine: {'line': b'\n'}
+[1.931561] (odrive_hw_interface) StderrLine: {'line': b'\x1b[0m\n'}
+[1.931613] (odrive_hw_interface) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.931669] (odrive_hw_interface) StdoutLine: {'line': b'See also "/home/simon/Workspace/odrive_hw_interface/build/odrive_hw_interface/CMakeFiles/CMakeOutput.log".\n'}
+[1.941583] (odrive_hw_interface) CommandEnded: {'returncode': 1}
+[1.989313] (odrive_hw_interface) JobEnded: {'identifier': 'odrive_hw_interface', 'rc': 1}
+[1.999807] (-) EventReactorShutdown: {}
