@@ -23,7 +23,7 @@ target_include_directories(
   include
 )
 ament_target_dependencies(
-  odrive_can_hw_interface
+  odrive_hw_interface
   hardware_interface
   rclcpp
   rclcpp_lifecycle
