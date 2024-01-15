@@ -12,6 +12,8 @@
 #include "rclcpp/macros.hpp"
 #include "rclcpp_lifecycle/state.hpp"
 
+#include "odrive-can.hpp"
+
 namespace odrive_hw_interface
 {
 class OdriveCanHwInterface : public hardware_interface::ActuatorInterface
@@ -48,8 +50,11 @@ public:
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
-  std::vector<double> hw_commands_;
-  std::vector<double> hw_states_;
+  // Store the command for the simulated robot
+  double hw_joint_command_;
+  double hw_joint_state_;
+
+  OdriveCAN *odrive;
 };
 
 }  // namespace odrive_hw_interface

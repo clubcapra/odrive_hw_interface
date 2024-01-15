@@ -15,12 +15,12 @@ find_package(rclcpp_lifecycle REQUIRED)
 add_library(
   odrive_hw_interface
   SHARED
-  src/odrive_hw_interface.cpp
+  hardware/odrive_hw_interface.cpp
 )
 target_include_directories(
   odrive_hw_interface
   PUBLIC
-  include
+  hardware/include
 )
 ament_target_dependencies(
   odrive_hw_interface
@@ -43,8 +43,8 @@ install(
 )
 
 install(
-  DIRECTORY include/
-  DESTINATION include
+  DIRECTORY hardware/include/
+  DESTINATION include/odrive_hw_interface
 )
 
 if(BUILD_TESTING)
@@ -71,7 +71,7 @@ if(BUILD_TESTING)
 endif()
 
 ament_export_include_directories(
-  include
+  hardware/include
 )
 ament_export_libraries(
   odrive_hw_interface
