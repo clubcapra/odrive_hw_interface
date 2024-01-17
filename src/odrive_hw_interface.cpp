@@ -15,6 +15,8 @@ hardware_interface::CallbackReturn OdriveCanHwInterface::on_init(
   {
     return CallbackReturn::SUCCESS;
   }
+   RCLCPP_INFO(
+      rclcpp::get_logger("OdriveCanHwInterface"), "Interface init");
 
   // TODO(anyone): read parameters and initialize the hardware
   hw_states_.resize(info_.joints.size(), std::numeric_limits<double>::quiet_NaN());
