@@ -1,0 +1,28 @@
+{
+    "name": "humble desktop",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspace/vscode",
+    "mounts": [
+      "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
+    ],
+    "initializeCommand": "echo 'humble desktop: initializing...'",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "GitHub.copilot-chat",
+          "GitHub.copilot",
+          "medo64.render-crlf",
+          "mhutchie.git-graph",
+          "ms-iot.vscode-ros",
+          "ms-python.autopep8",
+          "ms-python.flake8",
+          "ms-python.isort",
+          "ms-python.vscode-pylance",
+          "njpwerner.autodocstring",
+          "VisualStudioExptTeam.vscodeintellicode"
+        ]
+      }
+    }
+  }
+  
