@@ -19,6 +19,7 @@
                 "ms-python.flake8",
                 "ms-python.isort",
                 "ms-python.vscode-pylance",
+                "ms-vscode.cmake-tools",
                 "njpwerner.autodocstring",
                 "VisualStudioExptTeam.vscodeintellicode"
             ]
