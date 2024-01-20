@@ -13,8 +13,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # Update all packages
 RUN apt upgrade -y
 
-# Install Git
-RUN apt install -y git
+# Install Git and other tools
+RUN apt install -y git bash-completion
 
 # Rosdep update
 RUN rosdep update
