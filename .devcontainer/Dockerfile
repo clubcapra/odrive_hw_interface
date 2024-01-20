@@ -16,6 +16,9 @@ RUN apt upgrade -y
 # Install Git and other tools
 RUN apt install -y git bash-completion
 
+# Install ROS packages
+RUN apt install -y ros-${ROS_DISTRO}-controller-manager
+
 # Rosdep update
 RUN rosdep update
 
