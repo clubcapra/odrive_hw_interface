@@ -40,7 +40,7 @@ OdriveCAN::OdriveCAN(int drive_id, const char *can_interface) {
     if (bind(socket_fd, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
         perror("Error binding socket");
         close(this->socket_fd);
-        return; 
+        return;
     }
 
         // Set the read timeout to 1 second (adjust as needed)
@@ -55,7 +55,7 @@ OdriveCAN::OdriveCAN(int drive_id, const char *can_interface) {
 
     struct can_filter filter[1];
     filter[0].can_id = this->id;  // Set the CAN ID (will be masked)
-    filter[0].can_mask = ODRIVE_ID_MASK; 
+    filter[0].can_mask = ODRIVE_ID_MASK;
 
     if (setsockopt(this->socket_fd, SOL_CAN_RAW, CAN_RAW_FILTER, &filter, sizeof(filter)) < 0) {
         perror("Error setting CAN filter");
