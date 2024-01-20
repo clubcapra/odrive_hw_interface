@@ -19,7 +19,7 @@ public:
 private:
     int socket_fd;
     float pos = 0;
-    float vel = 0; 
+    float vel = 0;
 };
 
 #endif
