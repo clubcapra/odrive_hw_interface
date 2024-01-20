@@ -3,7 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/odrive_hw_interface/include/**",
+                "${workspaceFolder}/include/**",
                 "/opt/ros/humble/include/**"
             ],
             "defines": [],
