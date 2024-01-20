@@ -19,5 +19,5 @@ ros2 launch odrive_hw_interface odrive.launch.py
 Then, in another terminal:
 
 ```bash
-ros2 launch odrive_hw_interface test_foward_position_controller.launch.py
+ros2 launch odrive_hw_interface odrive_forward_position_controller.launch.py
 ```
