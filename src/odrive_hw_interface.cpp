@@ -31,50 +31,50 @@ namespace odrive_hw_interface
     using hardware_interface::return_type;
     using hardware_interface::StateInterface;
 
-OdriveHardware::OdriveHardware()
-    : ActuatorInterface()
-{
-    this->hw_joint_state_ = std::numeric_limits<double>::quiet_NaN();
-    this->hw_joint_command_ = std::numeric_limits<double>::quiet_NaN();
-}
-
-CallbackReturn OdriveHardware::on_init(const HardwareInfo &info)
-{
-    if (ActuatorInterface::on_init(info) != CallbackReturn::SUCCESS)
+    OdriveHardware::OdriveHardware()
+        : ActuatorInterface()
     {
+        this->hw_joint_state_ = std::numeric_limits<double>::quiet_NaN();
+        this->hw_joint_command_ = std::numeric_limits<double>::quiet_NaN();
+    }
+
+    CallbackReturn OdriveHardware::on_init(const HardwareInfo &info)
+    {
+        if (ActuatorInterface::on_init(info) != CallbackReturn::SUCCESS)
+        {
+            return CallbackReturn::SUCCESS;
+        }
+        RCLCPP_INFO(ODRIVE_LOGGER, "Interface init");
+
+        const ComponentInfo &joint = info_.joints[0];
+        const char *jname = joint.name.c_str();
+        LOG_AND_RETURN_IF_FATAL(
+            joint.command_interfaces.size() != 1,
+            "Joint '%s' has %zu command interfaces found. 1 expected.",
+            jname, joint.command_interfaces.size());
+
+        auto interface = &joint.command_interfaces[0];
+        LOG_AND_RETURN_IF_FATAL(
+            interface->name != HW_IF_EFFORT,
+            "Joint '%s' have %s command interfaces found. '%s' expected.",
+            jname, interface->name.c_str(), HW_IF_EFFORT);
+
+        LOG_AND_RETURN_IF_FATAL(
+            joint.state_interfaces.size() != 1,
+            "Joint '%s' has %zu state interface. 1 expected.", jname);
+
+        interface = &joint.state_interfaces[0];
+        LOG_AND_RETURN_IF_FATAL(
+            interface->name != HW_IF_EFFORT,
+            "Joint '%s' have %s state interface. '%s' expected.",
+            jname, interface->name.c_str(), HW_IF_EFFORT);
+
+        int id = 0;
+        char can_if[] = "can0";
+        this->odrive = new OdriveCAN(id, can_if);
+
         return CallbackReturn::SUCCESS;
     }
-    RCLCPP_INFO(ODRIVE_LOGGER, "Interface init");
-
-    const ComponentInfo &joint = info_.joints[0];
-    const char *jname = joint.name.c_str();
-    LOG_AND_RETURN_IF_FATAL(
-        joint.command_interfaces.size() != 1,
-        "Joint '%s' has %zu command interfaces found. 1 expected.",
-        jname, joint.command_interfaces.size());
-
-    auto interface = &joint.command_interfaces[0];
-    LOG_AND_RETURN_IF_FATAL(
-        interface->name != HW_IF_EFFORT,
-        "Joint '%s' have %s command interfaces found. '%s' expected.",
-        jname, interface->name.c_str(), HW_IF_EFFORT);
-
-    LOG_AND_RETURN_IF_FATAL(
-        joint.state_interfaces.size() != 1,
-        "Joint '%s' has %zu state interface. 1 expected.", jname);
-
-    interface = &joint.state_interfaces[0];
-    LOG_AND_RETURN_IF_FATAL(
-        interface->name != HW_IF_EFFORT,
-        "Joint '%s' have %s state interface. '%s' expected.",
-        jname, interface->name.c_str(), HW_IF_EFFORT);
-
-    int id = 0;
-    char can_if[] = "can0";
-    this->odrive = new OdriveCAN(id, can_if);
-
-    return CallbackReturn::SUCCESS;
-}
 
     std::vector<StateInterface> OdriveHardware::export_state_interfaces()
     {
